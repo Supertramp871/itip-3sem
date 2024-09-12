@@ -87,7 +87,7 @@ namespace pr1
             //  Перегрузка ToString()
             public override string ToString()
             {
-                return String.Format("Имя по паспорту - {4} \n Имя кошки - {0} \n Возраст кошки - {1} лет \n Вес кошки - {2} килограмм \n Процент осуждения кошки - {3}%", name, age, weight, percent_of_judgment, GetType());
+                return String.Format(" Имя по паспорту - {4} \n Имя кошки - {0} \n Возраст кошки - {1} лет \n Вес кошки - {2} килограмм \n Процент осуждения кошки - {3}%", name, age, weight, percent_of_judgment, GetType());
             }
 
             // Перегрузка операторов сравнения
