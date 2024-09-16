@@ -1,3 +1,4 @@
+
 using System;
 
 namespace pr1
@@ -118,7 +119,7 @@ namespace pr1
                 // Если это не первая итерация, выводим сообщение об ошибке
                 if (choosed != -1)
                 {
-                    Console.WriteLine("Некорректный ввод. Пожалуйста, введите число от 0 до 6.");
+                    Console.WriteLine("Некорректный ввод. Пожалуйста, введите число от 0 до 8.");
                 }
 
                 Console.WriteLine("Выберите действие:");
@@ -128,9 +129,11 @@ namespace pr1
                 Console.WriteLine("4 - Получить осуждающий взгляд от кошки (статический)");
                 Console.WriteLine("5 - Вывести персональные данные кошки");
                 Console.WriteLine("6 - Задать персональные данные кошки");
+                Console.WriteLine("7 - Перегрузка операции сложения кошек");
+                Console.WriteLine("8 - Перегрузка операции сравнения");
                 Console.WriteLine("0 - Выход");
 
-                validInput = Int32.TryParse(Console.ReadLine(), out choosed) && (choosed >= 0 && choosed <= 6);
+                validInput = Int32.TryParse(Console.ReadLine(), out choosed) && (choosed >= 0 && choosed <= 8);
 
                 Console.Clear();
             };
@@ -177,7 +180,10 @@ namespace pr1
         public static void Main()
         {
             ScottishCat FirstCat;
+            ScottishCat SecondCat;
+
             FirstCat = new ScottishCat();
+            SecondCat = new ScottishCat("Леха", 2, 13);
 
             int choosed = -1;
             while (choosed != 0)
@@ -204,10 +210,25 @@ namespace pr1
                         string name = GetNameInput();
                         int age = GetAgeInput();
                         double weight = GetWeightInput();
-                        
+
                         FirstCat = new ScottishCat(name, age, weight);
 
                         Console.WriteLine("Кошка успешно создана.");
+                        break;
+                    case 7:
+                        ScottishCat tempcat = FirstCat + SecondCat;
+
+                        Console.WriteLine($"{tempcat}");
+                        break;
+                    case 8:
+                        if (FirstCat == SecondCat)
+                        {
+                            Console.WriteLine("Кошки равны");
+                        }
+                        else
+                        {
+                            Console.WriteLine("Кошки не равны");
+                        }
                         break;
                     case 0:
                         Console.WriteLine("Exiting...");
